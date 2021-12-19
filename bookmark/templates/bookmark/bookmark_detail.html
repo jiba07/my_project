@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}BookMark Detail{% endblock %}
+
+{% block content %}
+
+    {{object.site_name}}<br/>
+    {{object.url}}<br/><br/>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'bookmark:update' pk=bookmark.id %}" class="btn btn-outline-secondary btn-sm">Modify</a>
+        <a href="{% url 'bookmark:delete' pk=bookmark.id %}" class="btn btn-outline-dark btn-sm">Delete</a>
+    {% endif %}
+
+{% endblock %}
